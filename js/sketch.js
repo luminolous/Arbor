@@ -157,9 +157,9 @@ function onSynapseFormed(tipA, tipB) {
 
 function renderAttractors() {
   noStroke();
-  fill('#232830');
+  fill('#4A5560');
   for (const p of state.attractorField.points) {
-    if (p.alive) circle(p.x, p.y, 2);
+    if (p.alive) circle(p.x, p.y, 3);
   }
 }
 
