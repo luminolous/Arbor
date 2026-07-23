@@ -76,6 +76,11 @@ input[type="range"] {
   accent-color: var(--synapse);
 }
 
+input[type="checkbox"] {
+  accent-color: var(--synapse);
+  margin-left: auto;
+}
+
 .readout {
   font-family: 'JetBrains Mono', monospace;
   color: var(--text-primary);

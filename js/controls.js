@@ -11,6 +11,7 @@ const Controls = (() => {
     const speedSlider = document.getElementById('growthSpeed');
     const speedValue = document.getElementById('growthSpeedValue');
     const resetBtn = document.getElementById('resetBtn');
+    const attractorsToggle = document.getElementById('showAttractors');
 
     neuronSlider.value = params.neuronCount;
     neuronValue.textContent = params.neuronCount;
@@ -29,6 +30,11 @@ const Controls = (() => {
     });
 
     resetBtn.addEventListener('click', () => onReset());
+
+    attractorsToggle.checked = params.showAttractors;
+    attractorsToggle.addEventListener('change', () => {
+      params.showAttractors = attractorsToggle.checked;
+    });
   }
 
   function updateStats({ synapses, fps }) {

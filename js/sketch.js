@@ -18,7 +18,8 @@ const state = {
     gridCellSize: 20,
     neuronCount: 120,
     growthSpeed: 1,
-    pulseSpeed: 0.28
+    pulseSpeed: 0.28,
+    showAttractors: false
   }
 };
 
@@ -92,6 +93,7 @@ function draw() {
   }
   synapseCount = synapseCount / 2;
 
+  if (state.params.showAttractors) renderAttractors();
   renderTips();
   renderSynapseFlashes();
   renderPulses();
@@ -151,6 +153,14 @@ function onSynapseFormed(tipA, tipB) {
   buffer.fill('#D9A566');
   buffer.circle(mx, my, 4);
   state.synapseFlashes.push({ x: mx, y: my, start: millis() });
+}
+
+function renderAttractors() {
+  noStroke();
+  fill('#232830');
+  for (const p of state.attractorField.points) {
+    if (p.alive) circle(p.x, p.y, 2);
+  }
 }
 
 function renderTips() {
