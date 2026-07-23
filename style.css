@@ -34,6 +34,36 @@ canvas {
   pointer-events: none;
 }
 
+#legend {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.legend-row .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-segment { background: #3A4550; }
+.dot-synapse { background: var(--synapse); }
+.dot-pulse { background: var(--pulse-core); }
+
 #controlPanel {
   position: fixed;
   bottom: 20px;
