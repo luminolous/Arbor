@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ARBOR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="titleMark">ARBOR</div>
+
+<div id="controlPanel">
+  <div class="panel-row">
+    <label for="neuronCount">Neurons</label>
+    <input type="range" id="neuronCount" min="20" max="300" step="1">
+    <span id="neuronCountValue" class="readout"></span>
+  </div>
+  <div class="panel-row">
+    <label for="growthSpeed">Speed</label>
+    <input type="range" id="growthSpeed" min="0.25" max="3" step="0.05">
+    <span id="growthSpeedValue" class="readout"></span>
+  </div>
+  <div class="panel-row">
+    <button id="resetBtn">Reset</button>
+    <span id="activityIndicator"></span>
+  </div>
+  <div class="panel-row stats">
+    <span>Synapses <span id="statSynapses" class="readout">0</span></span>
+    <span>FPS <span id="statFps" class="readout">0</span></span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+<script src="js/spatialGrid.js"></script>
+<script src="js/neuron.js"></script>
+<script src="js/sca.js"></script>
+<script src="js/synapse.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/sketch.js"></script>
+</body>
+</html>

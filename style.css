@@ -1,0 +1,118 @@
+:root {
+  --bg: #0A0E13;
+  --synapse: #D9A566;
+  --pulse-core: #FFB86B;
+  --panel-bg: rgba(18, 21, 26, 0.72);
+  --panel-border: #232830;
+  --text-primary: #EDEFF2;
+  --text-secondary: #9AA3AD;
+}
+
+html, body {
+  margin: 0;
+  overflow: hidden;
+  height: 100dvh;
+  background: var(--bg);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  display: block;
+}
+
+#titleMark {
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#controlPanel {
+  position: fixed;
+  bottom: 20px;
+  left: 24px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  z-index: 10;
+  min-width: 220px;
+  backdrop-filter: blur(6px);
+}
+
+.panel-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-row:last-child {
+  margin-bottom: 0;
+}
+
+.panel-row label {
+  color: var(--text-secondary);
+  font-size: 12px;
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.panel-row.stats {
+  color: var(--text-secondary);
+  font-size: 11px;
+  justify-content: space-between;
+}
+
+input[type="range"] {
+  flex: 1;
+  accent-color: var(--synapse);
+}
+
+.readout {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-primary);
+  font-size: 12px;
+  min-width: 32px;
+  text-align: right;
+}
+
+button#resetBtn {
+  background: transparent;
+  border: 1px solid var(--synapse);
+  color: var(--synapse);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button#resetBtn:hover {
+  background: rgba(217, 165, 102, 0.12);
+}
+
+#activityIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--panel-border);
+  margin-left: auto;
+}
+
+#activityIndicator.flash {
+  animation: activityFlash 0.6s ease-out;
+}
+
+@keyframes activityFlash {
+  0% { background: var(--pulse-core); box-shadow: 0 0 8px var(--pulse-core); }
+  100% { background: var(--panel-border); box-shadow: none; }
+}
