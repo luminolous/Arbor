@@ -6,7 +6,6 @@ Axons and dendrites grow through open space, form synapses on contact, and fire 
 
 [![p5.js](https://img.shields.io/badge/p5.js-1.9-ED225D?style=flat&logo=p5dotjs&logoColor=white)](https://p5js.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deploy%20pending-9AA3AD?style=flat&logo=githubpages&logoColor=white)](https://luminolous.github.io/Arbor/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [**Live demo**](https://luminolous.github.io/Arbor/) · [Report an issue](https://github.com/luminolous/Arbor/issues)
