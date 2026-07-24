@@ -9,7 +9,17 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="titleMark">ARBOR</div>
+<div id="titleMark">
+  <span>ARBOR</span>
+  <button id="infoToggle" aria-expanded="false" aria-label="About this simulation">?</button>
+</div>
+
+<div id="infoPanel">
+  <h2>What am I looking at?</h2>
+  <p><strong>Growing neurite.</strong> Each neuron starts as a single point and grows outward, reaching toward target points scattered across the screen. When a branch has no target left nearby, it stops, or splits into two new branches.</p>
+  <p><strong>Synapse.</strong> When two branches from different neurons meet, they connect. That connection point is marked in gold.</p>
+  <p><strong>Signal pulse.</strong> Once neurons are connected, a signal starts at one neuron and travels along the network, crossing every synapse it reaches. The amber dot moving along the lines is that signal: an action potential, the same kind of electrical impulse a real neuron sends to the ones it's wired to. It travels at a speed based on distance, so nearby connections light up first.</p>
+</div>
 
 <div id="legend">
   <div class="legend-row"><span class="dot dot-segment"></span>Growing neurite</div>

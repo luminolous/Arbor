@@ -35,6 +35,13 @@ const Controls = (() => {
     attractorsToggle.addEventListener('change', () => {
       params.showAttractors = attractorsToggle.checked;
     });
+
+    const infoToggle = document.getElementById('infoToggle');
+    const infoPanel = document.getElementById('infoPanel');
+    infoToggle.addEventListener('click', () => {
+      const isOpen = infoPanel.classList.toggle('open');
+      infoToggle.setAttribute('aria-expanded', isOpen);
+    });
   }
 
   function updateStats({ synapses, fps }) {

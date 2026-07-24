@@ -26,12 +26,88 @@ canvas {
   position: fixed;
   top: 20px;
   left: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#titleMark span {
   color: var(--text-primary);
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.12em;
+}
+
+#infoToggle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--text-secondary);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+#infoToggle:hover,
+#infoToggle[aria-expanded="true"] {
+  border-color: var(--synapse);
+  color: var(--synapse);
+}
+
+#infoPanel {
+  position: fixed;
+  top: 56px;
+  left: 24px;
   z-index: 10;
+  max-width: 340px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(-6px);
   pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#infoPanel.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#infoPanel h2 {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+#infoPanel p {
+  margin: 0 0 10px;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+#infoPanel p:last-child {
+  margin-bottom: 0;
+}
+
+#infoPanel strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 #legend {
