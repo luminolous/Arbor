@@ -86,7 +86,9 @@ assets/
 
 ## References
 
+```
 Runions, A., Lane, B., & Prusinkiewicz, P. (2007). Modeling trees with a space colonization algorithm. In *Eurographics Workshop on Natural Phenomena* (pp. 63-70). The Eurographics Association. https://doi.org/10.2312/NPH/NPH07/063-070
+```
 
 ## License
 
