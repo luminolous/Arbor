@@ -195,7 +195,7 @@ input[type="checkbox"] {
   text-align: right;
 }
 
-button#resetBtn {
+.btn {
   background: transparent;
   border: 1px solid var(--synapse);
   color: var(--synapse);
@@ -207,7 +207,7 @@ button#resetBtn {
   transition: background 0.15s ease;
 }
 
-button#resetBtn:hover {
+.btn:hover {
   background: rgba(217, 165, 102, 0.12);
 }
 

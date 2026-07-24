@@ -30,7 +30,8 @@ function setup() {
 
   Controls.init(state.params, {
     onReset: resetSimulation,
-    onSpeedChange: (v) => { state.params.growthSpeed = v; }
+    onSpeedChange: (v) => { state.params.growthSpeed = v; },
+    onFire: fireManualPulse
   });
 
   resetSimulation();
@@ -220,26 +221,33 @@ function renderPulses() {
   state.activePulses = remaining;
 }
 
-function maybeFirePulse() {
-  if (millis() < state.nextFireTime) return;
-
+function firePulse() {
   const sourceIds = [...state.graph.nodes.keys()].filter(
     id => id.startsWith('soma-') && state.graph.edges.get(id).length > 0
   );
+  if (sourceIds.length === 0) return;
 
-  if (sourceIds.length > 0) {
-    const sourceId = random(sourceIds);
-    const events = propagate(state.graph, sourceId, state.params.pulseSpeed);
-    const now = millis();
-    for (const e of events) {
-      state.activePulses.push({
-        fromPos: e.fromPos,
-        toPos: e.toPos,
-        absStart: now + e.startTime,
-        absEnd: now + e.endTime,
-        isSynapse: e.isSynapse
-      });
-    }
+  const sourceId = random(sourceIds);
+  const events = propagate(state.graph, sourceId, state.params.pulseSpeed);
+  const now = millis();
+  for (const e of events) {
+    state.activePulses.push({
+      fromPos: e.fromPos,
+      toPos: e.toPos,
+      absStart: now + e.startTime,
+      absEnd: now + e.endTime,
+      isSynapse: e.isSynapse
+    });
   }
+}
+
+function maybeFirePulse() {
+  if (millis() < state.nextFireTime) return;
+  firePulse();
+  state.nextFireTime = millis() + random(1500, 4000);
+}
+
+function fireManualPulse() {
+  firePulse();
   state.nextFireTime = millis() + random(1500, 4000);
 }

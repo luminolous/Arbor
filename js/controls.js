@@ -1,16 +1,19 @@
 const Controls = (() => {
   let onReset = () => {};
   let onSpeedChange = () => {};
+  let onFire = () => {};
 
   function init(params, callbacks) {
     onReset = callbacks.onReset;
     onSpeedChange = callbacks.onSpeedChange;
+    onFire = callbacks.onFire;
 
     const neuronSlider = document.getElementById('neuronCount');
     const neuronValue = document.getElementById('neuronCountValue');
     const speedSlider = document.getElementById('growthSpeed');
     const speedValue = document.getElementById('growthSpeedValue');
     const resetBtn = document.getElementById('resetBtn');
+    const fireBtn = document.getElementById('fireBtn');
     const attractorsToggle = document.getElementById('showAttractors');
 
     neuronSlider.value = params.neuronCount;
@@ -30,6 +33,7 @@ const Controls = (() => {
     });
 
     resetBtn.addEventListener('click', () => onReset());
+    fireBtn.addEventListener('click', () => onFire());
 
     attractorsToggle.checked = params.showAttractors;
     attractorsToggle.addEventListener('change', () => {
